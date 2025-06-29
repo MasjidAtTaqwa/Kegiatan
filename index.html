@@ -2,25 +2,38 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Masjid At-Taqwa</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (orientation: landscape) and (max-width: 1024px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
   <!-- Header -->
   <header class="bg-blue-400 text-white py-4">
-    <div class="container mx-auto px-4 flex flex-col items-center text-center">
-      <div class="flex items-center justify-between w-full max-w-6xl mb-4">
-        <img src="logo1.png" alt="Logo Kiri" class="w-28 h-28 object-contain" />
+    <div class="container mx-auto px-2 sm:px-4 flex flex-col items-center text-center">
+      <div class="flex flex-col sm:flex-row items-center justify-between w-full max-w-6xl mb-4 space-y-4 sm:space-y-0">
+        <img src="logo1.png" alt="Logo Kiri" class="w-20 sm:w-28 h-auto object-contain" />
         <div class="text-center w-full">
-          <h1 class="text-6xl font-bold tracking-widest whitespace-nowrap">MASJID AT-TAQWA</h1>
-          <p class="text-2xl mt-1">Menjadi Cahaya di Tengah Masyarakat</p>
+          <h1 class="text-4xl sm:text-6xl font-bold tracking-widest">MASJID AT-TAQWA</h1>
+          <p class="text-lg sm:text-2xl mt-1">Menjadi Cahaya di Tengah Masyarakat</p>
         </div>
-        <img src="logo2.png" alt="Logo Kanan" class="w-28 h-28 object-contain" />
+        <img src="logo2.png" alt="Logo Kanan" class="w-20 sm:w-28 h-auto object-contain" />
       </div>
       <nav>
-        <ul class="flex flex-wrap justify-center space-x-6 text-lg font-medium">
+        <ul class="flex flex-wrap justify-center space-x-4 sm:space-x-6 text-base sm:text-lg font-medium">
           <li><a href="#kegiatan" class="hover:underline">Kegiatan</a></li>
           <li><a href="#galeri" class="hover:underline">Galeri</a></li>
           <li><a href="#kontak" class="hover:underline">Kontak</a></li>
@@ -31,43 +44,43 @@
   </header>
 
   <!-- Hero -->
-  <section class="bg-white py-10 text-center">
-    <h2 class="text-2xl font-semibold mb-2">Selamat Datang di Masjid At-Taqwa</h2>
-    <p class="text-gray-600">Gabung bersama kami dalam kegiatan ibadah, kajian ilmu, dan sosial kemasyarakatan.</p>
+  <section class="bg-white py-8 sm:py-10 text-center px-2">
+    <h2 class="text-xl sm:text-2xl font-semibold mb-2">Selamat Datang di Masjid At-Taqwa</h2>
+    <p class="text-gray-600 text-sm sm:text-base">Gabung bersama kami dalam kegiatan ibadah, kajian ilmu, dan sosial kemasyarakatan.</p>
   </section>
 
-  <!-- Galeri Slideshow Otomatis dengan Vanilla JS -->
-  <section id="kegiatan" class="py-10 bg-gray-50">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div id="galeri" class="bg-white p-4 rounded-lg shadow text-center">
-        <div class="relative overflow-hidden rounded shadow mx-auto w-full h-64">
+  <!-- Galeri Slideshow Otomatis -->
+  <section id="kegiatan" class="py-8 sm:py-10 bg-gray-50">
+    <div class="container mx-auto px-2 sm:px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      <div id="galeri" class="bg-white p-2 sm:p-4 rounded-lg shadow text-center">
+        <div class="relative overflow-hidden rounded shadow mx-auto w-full h-48 sm:h-64">
           <img id="slideShowImage" src="https://masjidattaqwa.github.io/Kegiatan/foto/1.jpg" alt="Galeri Kegiatan" class="w-full h-full object-cover transition-opacity duration-1000" />
         </div>
       </div>
-      <div class="bg-white p-4 rounded-lg shadow text-center">
-        <h2 class="text-lg font-bold mb-2">Kegiatan Rutin</h2>
-        <ul class="text-sm text-left list-disc list-inside">
+      <div class="bg-white p-2 sm:p-4 rounded-lg shadow text-center">
+        <h2 class="text-base sm:text-lg font-bold mb-2">Kegiatan Rutin</h2>
+        <ul class="text-xs sm:text-sm text-left list-disc list-inside">
           <li>Sholat 5 waktu berjamaah</li>
           <li>Kajian malam Jumat & Ahad pagi</li>
           <li>TPA anak-anak setiap sore</li>
         </ul>
       </div>
-      <div id="kontak" class="bg-white p-4 rounded-lg shadow text-center">
-        <h2 class="text-lg font-bold mb-2">Kontak</h2>
-        <p class="text-sm">Email: m.tqa.masjid@gmail.com</p>
-        <p class="text-sm">Telp: 085606241278</p>
+      <div id="kontak" class="bg-white p-2 sm:p-4 rounded-lg shadow text-center">
+        <h2 class="text-base sm:text-lg font-bold mb-2">Kontak</h2>
+        <p class="text-xs sm:text-sm">Email: m.tqa.masjid@gmail.com</p>
+        <p class="text-xs sm:text-sm">Telp: 085606241278</p>
       </div>
-      <div id="lokasi" class="bg-white p-4 rounded-lg shadow text-center">
-        <h2 class="text-lg font-bold mb-2">Lokasi</h2>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.726427259229!2d112.73141348304428!3d-7.262291066748425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f95ea9af1e29%3A0x308b3bda4b6d5aea!2sJl.%20Kedung%20Rukem%20IV%20No.30%2C%20RT.005%2FRW.07%2C%20Kedungdoro%2C%20Kec.%20Tegalsari%2C%20Surabaya%2C%20Jawa%20Timur%2060261!5e0!3m2!1sid!2sid!4v1751169036911!5m2!1sid!2sid" class="w-full h-40 rounded" allowfullscreen loading="lazy"></iframe>
+      <div id="lokasi" class="bg-white p-2 sm:p-4 rounded-lg shadow text-center">
+        <h2 class="text-base sm:text-lg font-bold mb-2">Lokasi</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.726427259229!2d112.73141348304428!3d-7.262291066748425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f95ea9af1e29%3A0x308b3bda4b6d5aea!2sJl.%20Kedung%20Rukem%20IV%20No.30%2C%20RT.005%2FRW.07%2C%20Kedungdoro%2C%20Kec.%20Tegalsari%2C%20Surabaya%2C%20Jawa%20Timur%2060261!5e0!3m2!1sid!2sid!4v1751169036911!5m2!1sid!2sid" class="w-full h-32 sm:h-40 rounded" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-400 text-white py-6 text-center">
-    <p class="text-lg">Jl Kedung Rukem 4 No. 30 Surabaya Jawa Timur</p>
-    <p class="text-sm mt-2">&copy; 2025 Masjid At-Taqwa. All rights reserved.</p>
+  <footer class="bg-blue-400 text-white py-4 sm:py-6 text-center">
+    <p class="text-sm sm:text-lg">Jl Kedung Rukem 4 No. 30 Surabaya Jawa Timur</p>
+    <p class="text-xs sm:text-sm mt-1 sm:mt-2">&copy; 2025 Masjid At-Taqwa. All rights reserved.</p>
   </footer>
 
   <script>
