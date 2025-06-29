@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -6,83 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masjid At-Taqwa</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Header -->
-  <header class="bg-blue-400 text-white py-6">
-    <div class="container mx-auto px-4 flex flex-col items-center text-center md:flex-row md:justify-between">
-      <!-- Logo Kiri -->
-      <img src="logo1_transparent.png" alt="Logo Kiri" class="w-20 h-20 object-contain mx-auto md:mx-0 mb-4 md:mb-0" />
-
-      <!-- Judul -->
-      <div class="text-center md:flex-1">
-        <h1 class="text-3xl font-bold">Masjid At-Taqwa</h1>
-        <p class="text-sm mt-1">Menjadi Cahaya di Tengah Masyarakat</p>
+  <!-- Header Tetap -->
+  <header class="bg-blue-400 text-white py-4">
+    <div class="container mx-auto px-4 flex flex-col items-center text-center">
+      <div class="flex items-center justify-between w-full max-w-6xl mb-4">
+        <img src="logo1.png" alt="Logo Kiri" class="w-28 h-28 object-contain" />
+        <div class="text-center w-full">
+          <h1 class="text-6xl font-bold tracking-widest whitespace-nowrap">MASJID AT-TAQWA</h1>
+          <p class="text-2xl mt-1">Menjadi Cahaya di Tengah Masyarakat</p>
+        </div>
+        <img src="logo2.png" alt="Logo Kanan" class="w-28 h-28 object-contain" />
       </div>
-
-      <!-- Logo Kanan -->
-      <img src="logo2_transparent.png" alt="Logo Kanan" class="w-20 h-20 object-contain mx-auto md:mx-0 mt-4 md:mt-0" />
+      <nav>
+        <ul class="flex flex-wrap justify-center space-x-6 text-lg font-medium">
+          <li><a href="#kegiatan" class="hover:underline">Kegiatan</a></li>
+          <li><a href="#galeri" class="hover:underline">Galeri</a></li>
+          <li><a href="#kontak" class="hover:underline">Kontak</a></li>
+          <li><a href="#lokasi" class="hover:underline">Lokasi</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="bg-white py-10">
-    <div class="container mx-auto px-4 text-center">
-      <img src="https://via.placeholder.com/600x300" alt="Masjid At-Taqwa" class="mx-auto rounded-lg shadow-md mb-6" />
-      <h2 class="text-2xl font-semibold mb-2">Selamat Datang di Masjid At-Taqwa</h2>
-      <p class="text-gray-600">Gabung bersama kami dalam kegiatan ibadah, kajian ilmu, dan sosial kemasyarakatan.</p>
-    </div>
+  <!-- Hero -->
+  <section class="bg-white py-10 text-center">
+    <h2 class="text-2xl font-semibold mb-2">Selamat Datang di Masjid At-Taqwa</h2>
+    <p class="text-gray-600">Gabung bersama kami dalam kegiatan ibadah, kajian ilmu, dan sosial kemasyarakatan.</p>
   </section>
 
-  <!-- Kegiatan -->
-  <section class="py-10 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <h2 class="text-xl font-bold text-center mb-6">Kegiatan Rutin</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-4 rounded-lg shadow">
-          <h3 class="font-semibold text-lg mb-2">Sholat Berjamaah</h3>
-          <p>Sholat 5 waktu berjamaah setiap hari sesuai jadwal waktu sholat.</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-          <h3 class="font-semibold text-lg mb-2">Kajian Rutin</h3>
-          <p>Kajian Islam setiap malam Jumat dan Ahad pagi bersama ustadz lokal & tamu.</p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow">
-          <h3 class="font-semibold text-lg mb-2">TPA Anak-Anak</h3>
-          <p>Pembelajaran Al-Qur’an dan akhlak untuk anak-anak setiap sore (Senin - Kamis).</p>
+  <!-- Kolom dengan Galeri Slideshow Otomatis dan Transisi Halus -->
+  <section id="kegiatan" class="py-10 bg-gray-50">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Slideshow Galeri -->
+      <div id="galeri" class="bg-white p-4 rounded-lg shadow text-center" x-data="{
+          current: 0,
+          images: [
+            'https://via.placeholder.com/400x300?text=Kegiatan+1',
+            'https://via.placeholder.com/400x300?text=Kegiatan+2',
+            'https://via.placeholder.com/400x300?text=Kegiatan+3',
+            'https://via.placeholder.com/400x300?text=Kegiatan+4'
+          ],
+          init() {
+            setInterval(() => {
+              this.current = (this.current + 1) % this.images.length;
+            }, 3000);
+          }
+        }">
+        <div class="relative overflow-hidden rounded shadow mx-auto w-full h-64">
+          <template x-for="(image, index) in images" :key="index">
+            <img :src="image" alt="Galeri Kegiatan" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" :class="{'opacity-100': current === index, 'opacity-0': current !== index}" />
+          </template>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Galeri -->
-  <section class="py-10">
-    <div class="container mx-auto px-4">
-      <h2 class="text-xl font-bold text-center mb-6">Galeri Kegiatan</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="https://via.placeholder.com/200" class="rounded-lg shadow" alt="Kegiatan 1" />
-        <img src="https://via.placeholder.com/200" class="rounded-lg shadow" alt="Kegiatan 2" />
-        <img src="https://via.placeholder.com/200" class="rounded-lg shadow" alt="Kegiatan 3" />
-        <img src="https://via.placeholder.com/200" class="rounded-lg shadow" alt="Kegiatan 4" />
+      <div class="bg-white p-4 rounded-lg shadow text-center">
+        <h2 class="text-lg font-bold mb-2">Kegiatan Rutin</h2>
+        <ul class="text-sm text-left list-disc list-inside">
+          <li>Sholat 5 waktu berjamaah</li>
+          <li>Kajian malam Jumat & Ahad pagi</li>
+          <li>TPA anak-anak setiap sore</li>
+        </ul>
       </div>
-    </div>
-  </section>
-
-  <!-- Kontak -->
-  <section class="py-10 bg-green-100">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-xl font-bold mb-4">Kontak & Lokasi</h2>
-      <p class="mb-2">Jl. Raya Contoh No.123, Kota Contoh, Indonesia</p>
-      <p class="mb-2">Email: masjidattaqwa@email.com | Telp: 0812-3456-7890</p>
-      <iframe src="https://maps.google.com/maps?q=masjid&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              class="w-full max-w-xl h-64 mx-auto mt-4 border rounded-lg"></iframe>
+      <div id="kontak" class="bg-white p-4 rounded-lg shadow text-center">
+        <h2 class="text-lg font-bold mb-2">Kontak</h2>
+        <p class="text-sm">Email: m.tqa.masjid@gmail.com</p>
+        <p class="text-sm">Telp: 085606241278</p>
+      </div>
+      <div id="lokasi" class="bg-white p-4 rounded-lg shadow text-center">
+        <h2 class="text-lg font-bold mb-2">Lokasi</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d494.726427259229!2d112.73141348304428!3d-7.262291066748425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7f95ea9af1e29%3A0x308b3bda4b6d5aea!2sJl.%20Kedung%20Rukem%20IV%20No.30%2C%20RT.005%2FRW.07%2C%20Kedungdoro%2C%20Kec.%20Tegalsari%2C%20Surabaya%2C%20Jawa%20Timur%2060261!5e0!3m2!1sid!2sid!4v1751169036911!5m2!1sid!2sid" class="w-full h-40 rounded" allowfullscreen loading="lazy"></iframe>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-blue-400 text-white py-4 text-center">
-    <p>&copy; 2025 Masjid At-Taqwa. All rights reserved.</p>
+  <footer class="bg-blue-400 text-white py-6 text-center">
+    <p class="text-lg">Jl Kedung Rukem 4 No. 30 Surabaya Jawa Timur</p>
+    <p class="text-sm mt-2">&copy; 2025 Masjid At-Taqwa. All rights reserved.</p>
   </footer>
 
 </body>
