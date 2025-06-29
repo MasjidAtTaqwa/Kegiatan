@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Masjid At-Taqwa</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3" defer></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
-  <!-- Header Tetap -->
+  <!-- Header -->
   <header class="bg-blue-400 text-white py-4">
     <div class="container mx-auto px-4 flex flex-col items-center text-center">
       <div class="flex items-center justify-between w-full max-w-6xl mb-4">
@@ -37,28 +36,12 @@
     <p class="text-gray-600">Gabung bersama kami dalam kegiatan ibadah, kajian ilmu, dan sosial kemasyarakatan.</p>
   </section>
 
-  <!-- Kolom dengan Galeri Slideshow Otomatis dan Transisi Halus -->
+  <!-- Galeri Slideshow Otomatis dengan Vanilla JS -->
   <section id="kegiatan" class="py-10 bg-gray-50">
     <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Slideshow Galeri -->
-      <div id="galeri" class="bg-white p-4 rounded-lg shadow text-center" x-data="{
-          current: 0,
-          images: [
-            'https://via.placeholder.com/400x300?text=Kegiatan+1',
-            'https://via.placeholder.com/400x300?text=Kegiatan+2',
-            'https://via.placeholder.com/400x300?text=Kegiatan+3',
-            'https://via.placeholder.com/400x300?text=Kegiatan+4'
-          ],
-          init() {
-            setInterval(() => {
-              this.current = (this.current + 1) % this.images.length;
-            }, 3000);
-          }
-        }">
+      <div id="galeri" class="bg-white p-4 rounded-lg shadow text-center">
         <div class="relative overflow-hidden rounded shadow mx-auto w-full h-64">
-          <template x-for="(image, index) in images" :key="index">
-            <img :src="image" alt="Galeri Kegiatan" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000" :class="{'opacity-100': current === index, 'opacity-0': current !== index}" />
-          </template>
+          <img id="slideShowImage" src="https://masjidattaqwa.github.io/Kegiatan/foto/1.jpg" alt="Galeri Kegiatan" class="w-full h-full object-cover transition-opacity duration-1000" />
         </div>
       </div>
       <div class="bg-white p-4 rounded-lg shadow text-center">
@@ -86,6 +69,24 @@
     <p class="text-lg">Jl Kedung Rukem 4 No. 30 Surabaya Jawa Timur</p>
     <p class="text-sm mt-2">&copy; 2025 Masjid At-Taqwa. All rights reserved.</p>
   </footer>
+
+  <script>
+    const images = [
+      'https://masjidattaqwa.github.io/Kegiatan/foto/1.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/2.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/3.jpg'
+    ];
+    let current = 0;
+    const imgElement = document.getElementById('slideShowImage');
+    setInterval(() => {
+      current = (current + 1) % images.length;
+      imgElement.classList.add('opacity-0');
+      setTimeout(() => {
+        imgElement.src = images[current];
+        imgElement.classList.remove('opacity-0');
+      }, 500);
+    }, 3000);
+  </script>
 
 </body>
 </html>
