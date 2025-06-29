@@ -7,15 +7,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @media (orientation: landscape) and (max-width: 1024px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      iframe {
-        height: 200px;
-      }
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
+      iframe { height: 200px; }
     }
   </style>
 </head>
@@ -98,7 +92,7 @@
         imgElement.src = images[current];
         imgElement.classList.remove('opacity-0');
       }, 500);
-    }, 3000);
+    }, 6000); // DIPERLAMBAT dari 3000ms menjadi 6000ms agar slideshow lebih lambat
   </script>
 
 </body>
