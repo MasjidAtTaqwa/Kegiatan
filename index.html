@@ -11,6 +11,9 @@
       header p { font-size: 1rem; }
       iframe { height: 200px; }
     }
+    #slideShowImage {
+      transition: opacity 0.5s ease-in-out;
+    }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -77,32 +80,33 @@
     <p class="text-xs sm:text-sm mt-1 sm:mt-2">&copy; 2025 Masjid At-Taqwa. All rights reserved.</p>
   </footer>
 
+  <!-- Slideshow Script -->
   <script>
     const images = [
       'https://masjidattaqwa.github.io/Kegiatan/foto/1.jpg',
       'https://masjidattaqwa.github.io/Kegiatan/foto/2.jpg',
-      'https://masjidattaqwa.github.io/Kegiatan/foto/3.jpg'
+      'https://masjidattaqwa.github.io/Kegiatan/foto/3.jpg',
       'https://masjidattaqwa.github.io/Kegiatan/foto/4.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/5.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/6.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/7.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/8.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/9.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/10.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/11.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/12.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/13.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/14.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/15.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/16.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/17.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/18.jpg',
-    'https://masjidattaqwa.github.io/Kegiatan/foto/19.jpg'
-  ];
-</script>
+      'https://masjidattaqwa.github.io/Kegiatan/foto/5.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/6.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/7.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/8.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/9.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/10.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/11.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/12.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/13.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/14.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/15.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/16.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/17.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/18.jpg',
+      'https://masjidattaqwa.github.io/Kegiatan/foto/19.jpg'
+    ];
 
     let current = 0;
     const imgElement = document.getElementById('slideShowImage');
+
     setInterval(() => {
       current = (current + 1) % images.length;
       imgElement.classList.add('opacity-0');
@@ -110,7 +114,7 @@
         imgElement.src = images[current];
         imgElement.classList.remove('opacity-0');
       }, 500);
-    }, 6000); // DIPERLAMBAT dari 3000ms menjadi 6000ms agar slideshow lebih lambat
+    }, 6000);
   </script>
 
 </body>
